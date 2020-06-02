@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="JTFA_MK3.Views.NewVehiclePage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="ToolbarItem_Cancel_Clicked"/>
+        <ToolbarItem Text="Save" Clicked="ToolbarItem_Save_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Make" FontSize="Medium" />
+            <Entry x:Name="C_Make" FontSize="Small" />
+            <Label Text="CC" FontSize="Medium" />
+            <Entry x:Name="C_CC"  FontSize="Small" Margin="0" />
+            <Label Text="VIN" FontSize="Medium" />
+            <Entry x:Name="C_VIN" FontSize="Small" Margin="0" />
+            <Label Text="REG" FontSize="Medium" />
+            <Entry x:Name="C_REG" FontSize="Small" Margin="0" />
+            <Label Text="Mileage" FontSize="Medium" />
+            <Entry x:Name="C_Mileage" FontSize="Small" Margin="0" />
+            <Label Text="Engine_Number" FontSize="Medium" />
+            <Entry x:Name="C_Engine_Number" FontSize="Small" Margin="0" />
+            <Label Text="Year" FontSize="Medium" />
+            <Entry x:Name="C_Year" FontSize="Small" Margin="0" />
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

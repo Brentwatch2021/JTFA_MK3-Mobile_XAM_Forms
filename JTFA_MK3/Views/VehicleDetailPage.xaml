@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="JTFA_MK3.Views.VehicleDetailPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Remove" />
+        <ToolbarItem Text="Update"  />
+    </ContentPage.ToolbarItems>
+
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Make:" FontSize="Medium" HorizontalTextAlignment="Center" />
+            <Label x:Name="ID" Text="{Binding Vehicle.Vehicle_ID}" d:Text="Item_ID" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding Vehicle.Make}" d:Text="Item name" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="EngineNumber:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding Vehicle.EngineNumber}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="VIN:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding Vehicle.VIN}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="REG:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding Vehicle.REG}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="Mileage:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding Vehicle.Mileage}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="Year:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding Vehicle.Year}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="CC:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding Vehicle.CC}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

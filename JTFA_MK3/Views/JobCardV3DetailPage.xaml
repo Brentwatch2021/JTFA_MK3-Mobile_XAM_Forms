@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="JTFA_MK3.Views.JobCardV3DetailPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Name:" FontSize="Medium" HorizontalTextAlignment="Center" />
+            <Label x:Name="ID" Text="{Binding JobCard.JobCardID}" d:Text="Item name" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding JobCard.JobCardName}" d:Text="Item name" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Button x:Name="B_Vehicle_Display" Clicked="B_Vehicle_Display_Clicked" />
+            <ListView x:Name="ItemsListView"
+                ItemsSource="{Binding TaskDescriptions}"
+                      VerticalOptions="FillAndExpand"
+                      RefreshCommand="{Binding LoadTaskDescriptionsCommand}"
+                      IsPullToRefreshEnabled="True"
+                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                      CachingStrategy="RecycleElement"
+                      ItemSelected="OnItemSelected"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Description}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        
+        </StackLayout>
+        
+        <!--
+        <StackLayout>
+            <ListView x:Name="ItemsListView"
+                ItemsSource="{Binding JobCards}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadJobCardsCommand}"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement"
+                ItemSelected="OnItemSelected">
+                <d:ListView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>First Item</x:String>
+                        <x:String>Second Item</x:String>
+                        <x:String>Third Item</x:String>
+                        <x:String>Fourth Item</x:String>
+                        <x:String>Fifth Item</x:String>
+                        <x:String>Sixth Item</x:String>
+                    </x:Array>
+                </d:ListView.ItemsSource>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                 
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Delete" Clicked="MenuItem_Delete_Clicked" CommandParameter="{Binding .}"/>
+                                <MenuItem Text="Update" Clicked="MenuItem_Update_Clicked" CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding JobCardName}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        -->
+    </ContentPage.Content>
+</ContentPage>

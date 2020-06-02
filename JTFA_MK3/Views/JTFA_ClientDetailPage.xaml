@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="JTFA_MK3.Views.JTFA_ClientDetailPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Remove" />
+        <ToolbarItem Text="Update"  />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Name:" FontSize="Medium" HorizontalTextAlignment="Center" />
+            <Label x:Name="ID" Text="{Binding _jTFA_Client.JTFA_CLIENT_ID}" d:Text="Item name" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding _jTFA_Client.Name}" d:Text="Item name" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="Phone:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding _jTFA_Client.PhoneNumber}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="Email:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding _jTFA_Client.Email}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="Notification Setting:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding _jTFA_Client.Notifications_Permission_Levels_Allowed}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

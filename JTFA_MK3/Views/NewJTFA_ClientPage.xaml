@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="JTFA_MK3.Views.NewJTFA_ClientPage">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="ToolbarItem_Cancel_Clicked"/>
+        <ToolbarItem Text="Save" Clicked="ToolbarItem_Save_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Name" FontSize="Medium" />
+            <Entry x:Name="C_Name" FontSize="Small" />
+            <Label Text="Phone Number" FontSize="Medium" />
+            <Entry x:Name="C_PhoneNumber"  FontSize="Small" Margin="0" />
+            <Label Text="Email" FontSize="Medium" />
+            <Entry x:Name="C_Email" FontSize="Small" Margin="0" />
+            <Label Text="Notifications_Permission_Levels_Allowed" FontSize="Medium" />
+            <Entry x:Name="C_Notifications_Permission_Levels_Allowed" FontSize="Small" Margin="0" />
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="JTFA_MK3.Views.NewTaskDescriptionV3Page">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="ToolbarItem_Cancel_Clicked" />
+        <ToolbarItem Text="Save"  Clicked="ToolbarItem_Save_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Description" FontSize="Medium" />
+            <Entry x:Name="C_Description" FontSize="Small" />
+
+            <Label Text="Labour Cost" FontSize="Medium" />
+            <Entry x:Name="C_LabourCost" FontSize="Small" />
+
+            <Label Text="Parts Cost" FontSize="Medium" />
+            <Entry x:Name="C_PartsCost" FontSize="Small" />
+
+            <Label Text="Total Cost" FontSize="Medium" />
+            <Entry x:Name="C_TotalCost" FontSize="Small" />
+            <!--Add the qauntity to do the calculation-->
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

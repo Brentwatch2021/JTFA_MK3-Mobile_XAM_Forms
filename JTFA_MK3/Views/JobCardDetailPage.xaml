@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="JTFA_MK3.Views.JobCardDetailPage"
+             >
+    
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Name:" FontSize="Medium" HorizontalTextAlignment="Center" />
+            <Label x:Name="ID" Text="{Binding JobCard.JobCardID}" d:Text="Item name" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding JobCard.Name}" d:Text="Item name" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="Car:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding JobCard.Car}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="VIN:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding JobCard.VIN}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="REG:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding JobCard.REG}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="Mileage:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding JobCard.Mileage}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="Phone:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding JobCard.Phone}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="Email:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding JobCard.Email}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="Invoice:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding JobCard.Invoice}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="Total:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding JobCard.Total}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Label Text="Notes:" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding JobCard.Notes}" d:Text="Item description" FontSize="Small" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
