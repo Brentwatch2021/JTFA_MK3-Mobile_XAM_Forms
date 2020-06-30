@@ -16,11 +16,18 @@
             <Label Text="JobCard Name" FontSize="Medium" />
             <Entry x:Name="C_JobCardName" FontSize="Small" />
 
+            <Picker x:Name="P_Clients" Title="Select Client"/>
+            
             <Picker x:Name="P_Vehicles" Title="Select Vehicle"/>
 
-            <Button Text="Add Task Description" VerticalOptions="Center" Clicked="Button_New_TaskDescription_Clicked"></Button>
+            
 
-            <!--This is where the reuse of layouts can work-->
+            <Button Text="Add Task Description" VerticalOptions="Center" Clicked="Button_New_TaskDescription_Clicked"></Button>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <!--This is where the reuse of layouts can work-->
             <ListView x:Name="ItemsListView"
                 ItemsSource="{Binding TaskDescriptions}"
                       VerticalOptions="FillAndExpand"
@@ -29,12 +36,17 @@
                       IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                       CachingStrategy="RecycleElement"
                       ItemSelected="ItemsListView_ItemSelected"
+                      
                       >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Delete" Clicked="MenuItem_Delete_Clicked" CommandParameter="{Binding .}"/>
+                                <MenuItem Text="Update" Clicked="MenuItem_Update_Clicked" CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding Description}" 
+                                <Label x:Name="LabelDescription"  Text="{Binding Description, Mode=TwoWay}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16" />
@@ -43,7 +55,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
+                </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

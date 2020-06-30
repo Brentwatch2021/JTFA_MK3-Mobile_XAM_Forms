@@ -106,12 +106,12 @@ namespace JTFA_MK3.Services.V3_Services
             Uri uriforUpdate = null;
             try
             {
-                uriforUpdate = new Uri(string.Format("http://10.0.0.102:5555/api/jobcardV3/{0}", item.JobCardID.ToString()));
+                uriforUpdate = new Uri(string.Format("{0}api/jobcardV3/{1}", client.BaseAddress.ToString(), item.JobCardID.ToString()));
             }
             catch (Exception ex)
             {
             }
-
+            
             var response = await client.PutAsync(uriforUpdate, stringContent);
 
             return response.IsSuccessStatusCode;

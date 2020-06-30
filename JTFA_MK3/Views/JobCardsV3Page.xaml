@@ -40,12 +40,15 @@
                                 <MenuItem Text="Delete" Clicked="MenuItem_Delete_Clicked" CommandParameter="{Binding .}"/>
                                 <MenuItem Text="Update" Clicked="MenuItem_Update_Clicked" CommandParameter="{Binding .}"/>
                             </ViewCell.ContextActions>
-                            <StackLayout Padding="10">
+                            <StackLayout BackgroundColor="Azure"   Orientation="Horizontal" >
+                                <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Papio_anubis_%28Serengeti%2C_2009%29.jpg/200px-Papio_anubis_%28Serengeti%2C_2009%29.jpg"
+                                    HorizontalOptions="Start"  />
                                 <Label Text="{Binding JobCardName}" 
-                                LineBreakMode="NoWrap" 
+                                LineBreakMode="WordWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
-                                
+                                FontSize="16"  HorizontalOptions="CenterAndExpand"/>
+                                <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Papio_anubis_%28Serengeti%2C_2009%29.jpg/200px-Papio_anubis_%28Serengeti%2C_2009%29.jpg"
+                HorizontalOptions="End"  />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

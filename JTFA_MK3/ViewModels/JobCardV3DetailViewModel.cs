@@ -24,10 +24,7 @@ namespace JTFA_MK3.ViewModels
             this.Title = jobCard.JobCardName;
             this.TaskDescriptions = new ObservableCollection<TaskDescriptionV3>();
 
-            
-            
-
-
+           
             LoadTaskDescriptionsCommand = new Command(() =>  ExecuteLoadTaskDescriptionsCommand());
 
 

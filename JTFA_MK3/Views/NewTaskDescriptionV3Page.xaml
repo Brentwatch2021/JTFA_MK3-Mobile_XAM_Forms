@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             Title="NewTaskDescriptionPage"
              x:Class="JTFA_MK3.Views.NewTaskDescriptionV3Page">
 
     <ContentPage.ToolbarItems>

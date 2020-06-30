@@ -10,8 +10,14 @@
             <Label Text="Name:" FontSize="Medium" HorizontalTextAlignment="Center" />
             <Label x:Name="ID" Text="{Binding JobCard.JobCardID}" d:Text="Item name" FontSize="Small" HorizontalTextAlignment="Center"/>
             <Label Text="{Binding JobCard.JobCardName}" d:Text="Item name" FontSize="Small" HorizontalTextAlignment="Center"/>
+            <Button x:Name="B_JTFA_Client_Display" Clicked="B_JTFA_Client_Display_Clicked" />
             <Button x:Name="B_Vehicle_Display" Clicked="B_Vehicle_Display_Clicked" />
-            <ListView x:Name="ItemsListView"
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ListView x:Name="ItemsListView"
                 ItemsSource="{Binding TaskDescriptions}"
                       VerticalOptions="FillAndExpand"
                       RefreshCommand="{Binding LoadTaskDescriptionsCommand}"
@@ -20,20 +26,24 @@
                       CachingStrategy="RecycleElement"
                       ItemSelected="OnItemSelected"
                       >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding Description}" 
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Description}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        
+                                    <Label Text="{Binding Description}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
         </StackLayout>
         
         <!--

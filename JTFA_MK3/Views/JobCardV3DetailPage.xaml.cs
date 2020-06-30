@@ -22,7 +22,8 @@ namespace JTFA_MK3.Views
 
             BindingContext = this.viewModel = _viewModel;
 
-            B_Vehicle_Display.Text = _viewModel?.JobCard?.Vehicle.ToString();
+            B_Vehicle_Display.Text = _viewModel?.JobCard?.Vehicle?.ToString() == null ? "No Vehicle Selected" : _viewModel?.JobCard?.Vehicle?.ToString();
+            B_JTFA_Client_Display.Text = _viewModel?.JobCard?.JTFA_Client?.ToString() == null ? "No Client Selected" : _viewModel?.JobCard?.JTFA_Client?.ToString();
         }
 
         public JobCardV3DetailPage()
@@ -58,5 +59,15 @@ namespace JTFA_MK3.Views
 
             await Navigation.PushAsync(new VehicleDetailPage(new VehicleDetailViewModel(item)));
         }
+
+        private async void B_JTFA_Client_Display_Clicked(object sender, EventArgs e)
+        {
+            var item = this.viewModel?.JobCard?.JTFA_Client;
+            if (item == null)
+                return;
+
+            await Navigation.PushAsync(new JTFA_ClientDetailPage(new JTFA_ClientDetailViewModel(item)));
+        }
+
     }
 }

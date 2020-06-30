@@ -15,5 +15,10 @@ namespace JTFA_MK3.Models
         public string Email { get; set; }
 
         public string Notifications_Permission_Levels_Allowed { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

@@ -43,6 +43,8 @@ namespace JTFA_MK3.Views
             vehicle.Year = C_Year.Text;
             
             MessagingCenter.Send(this, "AddVehicle", vehicle);
+
+
             await Navigation.PopModalAsync();
         }
     }
