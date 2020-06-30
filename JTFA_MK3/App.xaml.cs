@@ -44,11 +44,10 @@ namespace JTFA_MK3
 
             if (UseMockDataStore)
             {
-                DependencyService.Register<MockEmployeeStore>();
+             
             }
             else
             {
-                DependencyService.Register<DashboardMK4_API_Employee_Store>();
                 DependencyService.Register<DashboardMK4_API_Job_Card_Store>();
                 DependencyService.Register<DashboardMK4_API_Vehicle_Store>();
                 DependencyService.Register<DashboardMK4_API_JTFA_Client_Store>();
