@@ -1,11 +1,13 @@
 ﻿using JTFA_MK3.Models.V2_Models;
 using JTFA_MK3.ViewModels;
+using Plugin.Media;
+using Plugin.Permissions.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -65,5 +67,9 @@ namespace JTFA_MK3.Views
             var jobCardCmdPar = item.CommandParameter as JobCardV3;
             Navigation.PushModalAsync(new NavigationPage(new NewJobCardV3Page(jobCardCmdPar, new NewjobCardV3ViewModel())));
         }
+
+        
+        
+
     }
 }
