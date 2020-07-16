@@ -14,10 +14,10 @@ namespace JTFA_MK3
         //TODO: Replace with *.azurewebsites.net url after deploying backend to Azure
         //To debug on Android emulators run the web backend against .NET Core not IIS
         //If using other emulators besides stock Google images you may need to adjust the IP address
-        public static string HOME_IP = "http://10.0.0.102:5555";
+        public static string HOME_IP = "http://10.0.0.108:5555";
         public static string AZURE_API_URL = "https://dashboardmk420200603124832.azurewebsites.net";
         public static string Darren_Becker_Dolphin_Beach_Hotel_IP = "http://10.0.0.7:5050";
-        public static string API_WEB_IP = AZURE_API_URL;
+        public static string API_WEB_IP = HOME_IP;
 
 
         public static bool UseMockDataStore = false;
