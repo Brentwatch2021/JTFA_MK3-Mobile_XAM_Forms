@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="JTFA_MK3.Views.New_JTFA_Invoice_Page">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="ToolbarItem_Cancel_Clicked" />
+        <ToolbarItem Text="Save"  Clicked="ToolbarItem_Save_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Invoice Number:"
+                VerticalOptions="Start" 
+                HorizontalOptions="Start" />
+            <Label x:Name="L_Invoice_Number"
+                VerticalOptions="Start" 
+                HorizontalOptions="End" />
+
+            <Picker x:Name="P_JobCards" Title="Select JobCard"/>
+
+            <Entry x:Name="E_Email_Recipients" FontSize="Small" />
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

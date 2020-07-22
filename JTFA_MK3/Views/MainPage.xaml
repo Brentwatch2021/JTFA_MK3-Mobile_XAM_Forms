@@ -9,6 +9,7 @@
 
     
     <TabbedPage.Children>
+        <!---
         <NavigationPage Title="CAM">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
@@ -18,41 +19,51 @@
             <x:Arguments>
                 <views:Camera />
             </x:Arguments>
+        </NavigationPage>-->
+
+        <NavigationPage Title="Invoices">
+            <x:Arguments>
+                <views:JTFA_Invoices_Page />
+            </x:Arguments>
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="tab_about.png"/>
+                </OnPlatform>
+            </NavigationPage.Icon>
         </NavigationPage>
-        
+
         <NavigationPage Title="Job Cards">
+            <x:Arguments>
+                <views:JobCardsV3Page />
+            </x:Arguments>
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="iOS" Value="tab_feed.png"/>
                 </OnPlatform>
             </NavigationPage.Icon>
-            <x:Arguments>
-                <views:JobCardsV3Page />
-            </x:Arguments>
         </NavigationPage>
 
         <NavigationPage Title="Vehicles">
-            <NavigationPage.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="tab_about.png"/>
-                </OnPlatform>
-            </NavigationPage.Icon>
             <x:Arguments>
                 <views:VehiclesPage />
             </x:Arguments>
-        </NavigationPage>
-
-        <NavigationPage Title="Client">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="iOS" Value="tab_about.png"/>
                 </OnPlatform>
             </NavigationPage.Icon>
+        </NavigationPage>
+
+        <NavigationPage Title="Client">
             <x:Arguments>
                 <views:JTFA_ClientsPage />
             </x:Arguments>
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="tab_about.png"/>
+                </OnPlatform>
+            </NavigationPage.Icon>
         </NavigationPage>
-        
     </TabbedPage.Children>
     
 </TabbedPage>

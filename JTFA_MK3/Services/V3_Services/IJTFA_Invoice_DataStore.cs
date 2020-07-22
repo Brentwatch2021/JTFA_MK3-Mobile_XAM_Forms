@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace JTFA_MK3.Services
+namespace JTFA_MK3.Services.V3_Services
 {
-    public interface IDataStore<T>
+    public interface IJTFA_Invoice_DataStore<T>
     {
         Task<bool> AddItemAsync(T item);
         Task<bool> UpdateItemAsync(T item);
-        Task<bool> DeleteItemAsync(string id);
-        Task<T> GetItemAsync(string id);
+        Task<bool> DeleteItemAsync(Guid id);
+        Task<T> GetItemAsync(Guid id);
         Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
     }
 }

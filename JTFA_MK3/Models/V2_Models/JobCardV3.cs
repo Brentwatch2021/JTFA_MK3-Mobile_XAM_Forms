@@ -21,5 +21,10 @@ namespace JTFA_MK3.Models.V2_Models
         public Vehicle Vehicle { get; set; }
 
         public JTFA_Client JTFA_Client { get; set; }
+
+        public override string ToString()
+        {
+            return JobCardName;
+        }
     }
 }

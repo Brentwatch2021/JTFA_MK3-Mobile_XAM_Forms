@@ -38,7 +38,7 @@ namespace JTFA_MK3.Services
             {
                 var stringContent = new System.Net.Http.StringContent(serializedItem, Encoding.UTF8, "application/json");
                 string stringContentstring = stringContent.ToString();
-                var response = await client.PostAsync($"api/vehicle", stringContent);
+                var response = await client.PostAsync($"api/1/vehicle", stringContent);
                 return response.IsSuccessStatusCode;
             }
             catch (Exception ex)
@@ -54,7 +54,7 @@ namespace JTFA_MK3.Services
             if (id != null && !IsConnected)
                 return false;
 
-            var response = await client.DeleteAsync($"api/vehicle{id}");
+            var response = await client.DeleteAsync($"api/1/vehicle{id}");
 
             return response.IsSuccessStatusCode;
         }
@@ -63,7 +63,7 @@ namespace JTFA_MK3.Services
         {
             if (id != null && IsConnected)
             {
-                var json = await client.GetStringAsync($"api/vehicle/{id}");
+                var json = await client.GetStringAsync($"api/1/vehicle/{id}");
                 return await Task.Run(() => JsonConvert.DeserializeObject<Vehicle>(json));
             }
 
@@ -78,7 +78,7 @@ namespace JTFA_MK3.Services
             {
                 try
                 {
-                    var json = await client.GetStringAsync($"api/vehicle");
+                    var json = await client.GetStringAsync($"api/1/vehicle");
                     vehicles = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<Vehicle>>(json));
                 }
                 catch (Exception ex)
@@ -99,7 +99,7 @@ namespace JTFA_MK3.Services
             var buffer = Encoding.UTF8.GetBytes(serializedItem);
             var byteContent = new System.Net.Http.ByteArrayContent(buffer);
 
-            var response = await client.PutAsync(new Uri($"api/vehicle/{item.Vehicle_ID}"), byteContent);
+            var response = await client.PutAsync(new Uri($"api/1/vehicle/{item.Vehicle_ID}"), byteContent);
 
             return response.IsSuccessStatusCode;
         }

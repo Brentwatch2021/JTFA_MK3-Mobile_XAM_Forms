@@ -52,6 +52,7 @@ namespace JTFA_MK3
                 DependencyService.Register<DashboardMK4_API_Vehicle_Store>();
                 DependencyService.Register<DashboardMK4_API_JTFA_Client_Store>();
                 DependencyService.Register<DashboardMK4_API_JobCardV3_DataStore>();
+                DependencyService.Register<DashboardMK4_API_JTFA_Invoice_DataStore>();
             }
                 
 

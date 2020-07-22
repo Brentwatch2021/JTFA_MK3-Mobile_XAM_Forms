@@ -37,7 +37,7 @@ namespace JTFA_MK3.Services
             {
                 var stringContent = new System.Net.Http.StringContent(serializedItem, Encoding.UTF8, "application/json");
                 string stringContentstring = stringContent.ToString();
-                var response = await client.PostAsync($"api/jtfa_client", stringContent);
+                var response = await client.PostAsync($"api/1/jtfa_client", stringContent);
                 return response.IsSuccessStatusCode;
             }
             catch (Exception ex)
@@ -53,7 +53,7 @@ namespace JTFA_MK3.Services
             if (id != null && !IsConnected)
                 return false;
 
-            var response = await client.DeleteAsync($"api/jtfa_client{id}");
+            var response = await client.DeleteAsync($"api/1/jtfa_client{id}");
 
             return response.IsSuccessStatusCode;
         }
@@ -62,7 +62,7 @@ namespace JTFA_MK3.Services
         {
             if (id != null && IsConnected)
             {
-                var json = await client.GetStringAsync($"api/jtfa_client/{id}");
+                var json = await client.GetStringAsync($"api/1/jtfa_client/{id}");
                 return await Task.Run(() => JsonConvert.DeserializeObject<JTFA_Client>(json));
             }
 
@@ -75,7 +75,7 @@ namespace JTFA_MK3.Services
             {
                 try
                 {
-                    var json = await client.GetStringAsync($"api/jtfa_client");
+                    var json = await client.GetStringAsync($"api/1/jtfa_client");
                     jtfa_Clients = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<JTFA_Client>>(json));
                 }
                 catch (Exception ex)
@@ -95,7 +95,7 @@ namespace JTFA_MK3.Services
             var buffer = Encoding.UTF8.GetBytes(serializedItem);
             var byteContent = new System.Net.Http.ByteArrayContent(buffer);
 
-            var response = await client.PutAsync(new Uri($"api/jtfa_client/{item.JTFA_CLIENT_ID}"), byteContent);
+            var response = await client.PutAsync(new Uri($"api/1/jtfa_client/{item.JTFA_CLIENT_ID}"), byteContent);
 
             return response.IsSuccessStatusCode;
         }
