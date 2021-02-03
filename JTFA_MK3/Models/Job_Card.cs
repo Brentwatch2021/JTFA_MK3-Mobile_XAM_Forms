@@ -5,7 +5,7 @@ using System.Text;
 
 namespace JTFA_MK3.Models
 {
-    public class Job_Card : IJTFA_MainMenu_Item_View_Contract//, INotifyPropertyChanged
+    public class Job_Card : IJTFA_MainMenu_Item_View_Contract, I_List_Item_View
     {
         public Guid JobCardID { get; set; }
 
@@ -51,9 +51,24 @@ namespace JTFA_MK3.Models
             }
         }
 
-        public string Main_Menu_Display_Name {
-            get {
+        public string Main_Menu_Display_Name 
+        {
+            get 
+            {
                 return this.Name;
+            }
+        }
+
+        public string TimeCreated 
+        {
+            get;
+        }
+        public string TimeModified { get => throw new NotImplementedException(); }
+        public string Display_Name 
+        {
+            get 
+            {
+                return Name;
             }
         }
 

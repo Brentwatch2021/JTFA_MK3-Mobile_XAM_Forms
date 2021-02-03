@@ -1,58 +1,63 @@
 ﻿using JTFA_MK3.Models.V2_Models;
 using JTFA_MK3.ViewModels;
-using Plugin.Media;
-using Plugin.Permissions.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace JTFA_MK3.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class JobCardsV3Page : ContentPage
+    public partial class JTFA_Main_PageDetail : ContentPage
     {
         JobcardsV3ViewModel viewModel;
-        public JobCardsV3Page()
+
+        public JTFA_Main_PageDetail()
         {
             InitializeComponent();
-
             BindingContext = viewModel = new JobcardsV3ViewModel();
+            Setup_Nav_Icons();
         }
 
-       public async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        private void Setup_Nav_Icons()
+        {/*
+            NV_Add_JobCard_BTN.IconImageSource = ImageSource.FromUri(new Uri("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Papio_anubis_%28Serengeti%2C_2009%29.jpg/200px-Papio_anubis_%28Serengeti%2C_2009%29.jpg"));
+            NV_Add_Car_BTN.IconImageSource = ImageSource.FromUri(new Uri("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Papio_anubis_%28Serengeti%2C_2009%29.jpg/200px-Papio_anubis_%28Serengeti%2C_2009%29.jpg"));
+            NV_Add_Client_BTN.IconImageSource = ImageSource.FromUri(new Uri("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Papio_anubis_%28Serengeti%2C_2009%29.jpg/200px-Papio_anubis_%28Serengeti%2C_2009%29.jpg"));
+            NV_Add_Invoice_BTN.IconImageSource = ImageSource.FromUri(new Uri("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Papio_anubis_%28Serengeti%2C_2009%29.jpg/200px-Papio_anubis_%28Serengeti%2C_2009%29.jpg"));
+            */
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            
+            viewModel.LoadJobCardsCommand.Execute(null);
+        }
+
+
+        public async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var item = args.SelectedItem as JobCardV3;
             if (item == null)
                 return;
 
             await Navigation.PushAsync(new JobCardV3DetailPage(new JobCardV3DetailViewModel(item)));
-
+            
             // Manually deselect item.
-            ItemsListView.SelectedItem = null;
+            ItemsListViewV2.SelectedItem = null;
         }
+
 
         public async void AddJobCard_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new NewJobCardV3Page(new NewjobCardV3ViewModel())));
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-        
-            // BUG #4
-            // This needs to be altered as the property name does not update when items name is updated
-            // at the moment we just reload the entire list which is not right for real world
-            //
-            //if (viewModel.JobCards.Count == 0)
-            viewModel.LoadJobCardsCommand.Execute(null);
-        
-        }
 
         private void MenuItem_Delete_Clicked(object sender, EventArgs e)
         {
@@ -61,20 +66,13 @@ namespace JTFA_MK3.Views
             MessagingCenter.Send(this, "RemoveJobCardV3", jobCardCmdPar);
         }
 
+
         private void MenuItem_Update_Clicked(object sender, EventArgs e)
         {
             var item = ((MenuItem)sender);
             var jobCardCmdPar = item.CommandParameter as JobCardV3;
             Navigation.PushModalAsync(new NavigationPage(new NewJobCardV3Page(jobCardCmdPar, new NewjobCardV3ViewModel())));
         }
-
-        private void Send_Invoice_Clicked(object sender, EventArgs e)
-        {
-            var item = ((MenuItem)sender);
-            var jobCardCmdPar = item.CommandParameter as JobCardV3;
-            MessagingCenter.Send(this, "SendInvoice", jobCardCmdPar);
-        }
-
 
     }
 }

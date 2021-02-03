@@ -1,4 +1,5 @@
 ﻿using JTFA_MK3.Models;
+using JTFA_MK3.Models.V2_Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -119,6 +120,35 @@ namespace JTFA_MK3.Services
             }
              
             var response = await client.PutAsync(uriforUpdate, stringContent);
+
+            return response.IsSuccessStatusCode;
+        }
+
+
+
+        public async Task<bool> SendInvoiceAsync(Job_Card item)
+        {
+
+            if (item == null || item.JobCardID == null || !IsConnected)
+                return false;
+
+            // Create Mail Request object
+            Mail_Request mailRequest = new Mail_Request();
+            mailRequest.JobCardID = item.JobCardID.ToString();
+            mailRequest.Subject = "SC XXX";
+
+            var serializedItem = JsonConvert.SerializeObject(mailRequest);
+            var stringContent = new System.Net.Http.StringContent(serializedItem, Encoding.UTF8, "application/json");
+            Uri uriforUpdate = null;
+            try
+            {
+                uriforUpdate = new Uri("http://10.0.0.102:5555/api/mail");
+            }
+            catch (Exception ex)
+            {
+            }
+
+            var response = await client.PostAsync(uriforUpdate, stringContent);
 
             return response.IsSuccessStatusCode;
         }

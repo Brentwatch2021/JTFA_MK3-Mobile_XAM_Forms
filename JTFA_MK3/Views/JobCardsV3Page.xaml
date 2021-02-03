@@ -39,15 +39,16 @@
                             <ViewCell.ContextActions>
                                 <MenuItem Text="Delete" Clicked="MenuItem_Delete_Clicked" CommandParameter="{Binding .}"/>
                                 <MenuItem Text="Update" Clicked="MenuItem_Update_Clicked" CommandParameter="{Binding .}"/>
+                                <MenuItem Text="Send Invoice" Clicked="Send_Invoice_Clicked" CommandParameter="{Binding .}"/>
                             </ViewCell.ContextActions>
                             <StackLayout BackgroundColor="Azure"   Orientation="Horizontal" >
-                                <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Papio_anubis_%28Serengeti%2C_2009%29.jpg/200px-Papio_anubis_%28Serengeti%2C_2009%29.jpg"
+                                <Image Source="https://cdn3.iconfinder.com/data/icons/diagram_v2/PNG/96x96/diagram_v2-11.png"
                                     HorizontalOptions="Start"  />
                                 <Label Text="{Binding JobCardName}" 
                                 LineBreakMode="WordWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16"  HorizontalOptions="CenterAndExpand"/>
-                                <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Papio_anubis_%28Serengeti%2C_2009%29.jpg/200px-Papio_anubis_%28Serengeti%2C_2009%29.jpg"
+                                <Image Source="https://cdn3.iconfinder.com/data/icons/diagram_v2/PNG/96x96/diagram_v2-11.png"
                 HorizontalOptions="End"  />
                             </StackLayout>
                         </ViewCell>

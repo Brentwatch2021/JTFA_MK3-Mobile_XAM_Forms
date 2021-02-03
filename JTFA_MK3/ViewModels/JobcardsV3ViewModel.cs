@@ -31,7 +31,7 @@ namespace JTFA_MK3.ViewModels
             });
 
             // Removal functionality
-            MessagingCenter.Subscribe<JobCardsV3Page, JobCardV3>(this, "RemoveJobCardV3", async (obj, item) => {
+            MessagingCenter.Subscribe<JTFA_Main_PageDetail, JobCardV3>(this, "RemoveJobCardV3", async (obj, item) => {
                 var itemToDelete = item as JobCardV3;
                 JobCards.Remove(itemToDelete);
                 await DataStore.DeleteItemAsync(itemToDelete.JobCardID);
@@ -42,6 +42,22 @@ namespace JTFA_MK3.ViewModels
             {
                 var jobCardToUpdate = item as JobCardV3;
                 await DataStore.UpdateItemAsync(jobCardToUpdate);
+            }
+            );
+
+
+            MessagingCenter.Subscribe<JobCardsV3Page, JobCardV3>(this, "SendInvoice", async (obj, item) =>
+            {
+                try
+                {
+                    var jobCardToUpdate = item as JobCardV3;
+                    await DataStore.SendInvoiceAsync(jobCardToUpdate);
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+                
             }
             );
 

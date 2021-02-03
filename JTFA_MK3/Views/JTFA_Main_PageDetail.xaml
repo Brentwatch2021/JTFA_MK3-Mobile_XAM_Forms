@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:customtoolbaritem="clr-namespace:JTFA_MK3.CustomToolBarItem"
+             mc:Ignorable="d"
+             x:Class="JTFA_MK3.Views.JTFA_Main_PageDetail"
+             Title="JTFA"
+             >
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="NV_Add_JobCard_BTN" Text="Add" Clicked="AddJobCard_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout >
+        <ListView x:Name="ItemsListViewV2"
+                ItemsSource="{Binding JobCards}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadJobCardsCommand}"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement"
+                ItemSelected="OnItemSelected">
+            <d:ListView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>First Item</x:String>
+                    <x:String>Second Item</x:String>
+                    <x:String>Third Item</x:String>
+                    <x:String>Fourth Item</x:String>
+                    <x:String>Fifth Item</x:String>
+                    <x:String>Sixth Item</x:String>
+                </x:Array>
+            </d:ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete" Clicked="MenuItem_Delete_Clicked" CommandParameter="{Binding .}"/>
+                            <MenuItem Text="Update" Clicked="MenuItem_Update_Clicked" CommandParameter="{Binding .}"/>
+                        </ViewCell.ContextActions>
+                        <StackLayout BackgroundColor="Azure" Orientation="Horizontal" >
+                            <Image Source="https://cdn3.iconfinder.com/data/icons/diagram_v2/PNG/96x96/diagram_v2-11.png"
+                                    HorizontalOptions="Start"  />
+                            <Label Text="{Binding JobCardName}" 
+                                LineBreakMode="WordWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16"  HorizontalOptions="CenterAndExpand"/>
+                        
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        </StackLayout>
+</ContentPage>

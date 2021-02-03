@@ -11,6 +11,7 @@ namespace JTFA_MK3.Services
         Task<bool> UpdateItemAsync(T item);
         Task<bool> DeleteItemAsync(Guid id);
         Task<T> GetItemAsync(Guid id);
+        Task<bool> SendInvoiceAsync(T item);
         Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
     }
 }
